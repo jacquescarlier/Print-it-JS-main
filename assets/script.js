@@ -21,8 +21,8 @@ const slides = [
 const banner = document.getElementById('banner');
 const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
-const bannerImg = document.querySelector('#banner > img');
-const bannerTxt = document.querySelector('#banner > p');
+const bannerImg = document.querySelector('.banner-img');
+const bannerTxt = document.querySelector('#banner p');
 
 const numOfImg = slides.length;
 let i = 0;
@@ -65,7 +65,7 @@ function selected() {
 			dot[i].classList.remove('dot_selected');
 		}
 		dot[i].classList.add('dot_selected');
-}									
+}								
 
 /* link tableau slides*/
 function carouselImg() {
@@ -91,15 +91,7 @@ arrowLeft.addEventListener("click", function(){
 
 /* function arrow_right, previous */
 arrowRight.addEventListener("click", function(){
-					
-	/*if (i==0) {
-		i = numOfImg - 1;
-	}
-	else {
-		i--;
-	}
-	carouselImg();
-})*/
+	
 					console.log("i right avant", i);
 	if (i == numOfImg - 1){
 		i = 0;
