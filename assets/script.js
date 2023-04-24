@@ -18,7 +18,7 @@ const slides = [
 ]
 
 /* Déclaration des constantes */
-const banner = document.getElementById('banner');
+/*const banner = document.getElementById('banner');*/
 const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
