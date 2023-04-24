@@ -63,13 +63,14 @@ function selected() {
 		i < dot.length;
 		i++) {
 			dot[i].classList.remove('dot_selected');
+			console.log("dot remove", dot[i])
 		}
 		dot[i].classList.add('dot_selected');
-}								
+		console.log("dot add", dot[i])
+}						
 
 /* link tableau slides*/
 function carouselImg() {
-	
 	bannerImg.src = `./assets/images/slideshow/${slides[i].image}`;
 	bannerTxt.innerHTML = slides[i].tagLine;
 	selected();
