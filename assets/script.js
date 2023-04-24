@@ -77,9 +77,7 @@ carouselImg();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function(){
-					console.log("i left avant", i);
-					console.log("numOfImg left", numOfImg);
-				
+					console.log("i left avant", i);		
 	if (i==0) {
 		i = numOfImg - 1;
 					console.log("i left après", i);
