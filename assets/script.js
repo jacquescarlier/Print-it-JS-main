@@ -79,7 +79,8 @@ carouselImg();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function(){
-						console.log("i left avant", i);		
+						console.log("i left avant", i);	
+						console.log("i==numOfImg", i==0)
 	if (i==0) {
 		i = numOfImg - 1;
 						console.log("i left après", i);
@@ -91,9 +92,11 @@ arrowLeft.addEventListener("click", function(){
 })
 
 /* function arrow_right, previous */
+/*  */
 arrowRight.addEventListener("click", function(){
 	
 					console.log("i right avant", i);
+					console.log("i==numOfImg", i==numOfImg - 1)
 	if (i == numOfImg - 1){
 		i = 0;
 					console.log("i right après", i);
