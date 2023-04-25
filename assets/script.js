@@ -77,40 +77,48 @@ function updateDot() {
 function updateCarouselImg() {
 	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
 	bannerTxt.innerHTML = slides[index].tagLine;
-	console.log("updatecarousel");
+	console.log("updatecarousel 666");
 	updateDot();
 }
 updateCarouselImg();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
-	j = 0
+	let j = 0
 	nextPrevious();
 })
 
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
+	let j = -1
 	nextPrevious();
 })
 /*
 /* fonction paramètres left rigth */
 function nextPrevious () {
-	console.log("nextPrevious du r");
+	console.log("nextPrevious ");
 	if (j = 0) {
+		
 		if (index == 0) {
 		index = numOfImg - 1;
+		console.log("index 0 if");
+		console.log("indexIf0", index)
 		} else {
 		index--;
+		console.log("index 0 else");
 		}	
-		}  else  {
+	} if (j = -1) {
+		console.log("ifindex", numOfImg)
 		if (index == numOfImg - 1){
-			index = 0;
+			index = 10;
+			console.log("if -1");
 		} else {
 			index++;
+			console.log("else -1")
 		}
 	}
 	updateCarouselImg();
-	console.log("3");
+	console.log("333");
 }
 
 
