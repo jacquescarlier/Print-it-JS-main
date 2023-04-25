@@ -18,15 +18,15 @@ const slides = [
 ]
 
 /* Déclaration des constantes */
-/*const banner = document.getElementById('banner');*/
+
 const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
 
+/* const longueur du tableau slides et initialisation de son index à 0 */
 const numOfImg = slides.length;
-let i = 0;
-console.log("longueur du tableau ", numOfImg);
+let index = 0;
 
 /* création dot*/
 /* console.log centrer pour développement code*/
@@ -34,78 +34,84 @@ console.log("longueur du tableau ", numOfImg);
 function createDots() {
 	const dots = document.querySelector('.dots');
 	for (let a = 0;
-		a < numOfImg;
+		a < numOfImg; /* For a < the length of the array add 1 */
 		a++) {
 											console.log("a =", a);
+	/* creation of dot with ID*/
 	const dot = document.createElement('span');
-	dot.id='span' + a;
-											console.log("dot =", dot.id);
-	dot.addEventListener('click', function (event) {
-		i = Number(event.target.id.replace('span', ''));
-		carouselImg()
+	dot.id='span' + a; /* create of the ID for span */
+											console.log("create dot =", dot.id);
+	dot.addEventListener('click', function () {
+											console.log("i number target", index);
+		updateCarouselImg()/* update image carousel */
 	});
+	console.log("i number target", index);
 	dot.classList.add('dot');
 											console.log( "nom des span", dot)
 	dots.appendChild(dot);
-	if (a==0){
-		dots.children[a].classList.add('dot_selected');								
-	}
-	
+											console.log("appendChild", dot)
 	}	
 }
 createDots();
-											console.log(createDots);
 
-	/* function select img */
-function selected() {
+	/* update active dot */
+function updateDot() {
 	const dot = document.getElementsByClassName('dot');
-	for (let i = 0;
-		i < dot.length;
-		i++) {
-			dot[i].classList.remove('dot_selected');
-			console.log("dot remove", dot[i])
+	/* delete dot not selected to leave them empty*/
+	/*without this code all the dots are filled one after the other */
+	for (let index = 0;
+		index < dot.length;
+		index++) {
+			/* Remove dot fill */
+		dot[index].classList.remove('dot_selected');
+									console.log("dot remove_update dot", dot[index])
+									console.log("dot index", dot[index])
 		}
-		dot[i].classList.add('dot_selected');
-		console.log("dot add", dot[i])
+		/* dot selected*/
+		
+		/*dot[index].classList.add('dot_selected');*/
+									console.log("dot selected_update dot", dot[index])
 }						
 
-/* link tableau slides*/
-function carouselImg() {
-	bannerImg.src = `./assets/images/slideshow/${slides[i].image}`;
-	bannerTxt.innerHTML = slides[i].tagLine;
-	selected();
+/* refresh slideshow images*/
+function updateCarouselImg() {
+	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
+	bannerTxt.innerHTML = slides[index].tagLine;
+	updateDot();
 }
-carouselImg();
+updateCarouselImg();
 
 /* function arrow_left, previous */
-arrowLeft.addEventListener("click", function(){
-						console.log("i left avant", i);	
-						console.log("i==numOfImg", i==0)
-	if (i==0) {
-		i = numOfImg - 1;
-						console.log("i left après", i);
+arrowLeft.addEventListener("click", function() {
+						console.log("i left avant", index);	
+						console.log("i==numOfImg", index==0)
+	if (index==0) {
+		index = numOfImg - 1;
+						console.log("i left après", index);
 	} else {
-		i--;
-						console.log ( "i left else", i);
+		index--;
+						console.log ( "i left else", index);
 	}
-	carouselImg();
+	updateCarouselImg();
 })
 
-/* function arrow_right, previous */
-/*  */
+/* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
-	
-					console.log("i right avant", i);
-					console.log("i==numOfImg", i==numOfImg - 1)
-	if (i == numOfImg - 1){
-		i = 0;
-					console.log("i right après", i);
+					console.log("i right avant", index);
+					console.log("i==numOfImg", index==numOfImg - 1)
+	if (index == numOfImg - 1){
+		index = 0;
+					console.log("i right après", index);
 	} else {
-		i++;
-					console.log ( "i right else", i);
+		index++;
+					console.log ( "i right else", index);
 	}
-	carouselImg();
+	updateCarouselImg();
 })
+/*
+/* fonction paramètres left rigth */
+
+
 
 
 
