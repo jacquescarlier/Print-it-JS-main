@@ -69,7 +69,7 @@ function updateDot() {
 		}
 		/* dot selected*/
 		
-		/*dot[index].classList.add('dot_selected');*/
+		dot[index].classList.add('dot_selected');
 									console.log("dot selected_update dot", dot[index])
 }						
 
@@ -77,41 +77,44 @@ function updateDot() {
 function updateCarouselImg() {
 	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
 	bannerTxt.innerHTML = slides[index].tagLine;
+	console.log("updatecarousel");
 	updateDot();
 }
 updateCarouselImg();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
-						console.log("i left avant", index);	
-						console.log("i==numOfImg", index==0)
-	if (index==0) {
-		index = numOfImg - 1;
-						console.log("i left après", index);
-	} else {
-		index--;
-						console.log ( "i left else", index);
-	}
-	updateCarouselImg();
+	j = 0
+	nextPrevious();
 })
 
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
-					console.log("i right avant", index);
-					console.log("i==numOfImg", index==numOfImg - 1)
-	if (index == numOfImg - 1){
-		index = 0;
-					console.log("i right après", index);
-	} else {
-		index++;
-					console.log ( "i right else", index);
-	}
-	updateCarouselImg();
+	nextPrevious();
 })
 /*
 /* fonction paramètres left rigth */
+function nextPrevious () {
+	console.log("nextPrevious du r");
+	if (j = 0) {
+		if (index == 0) {
+		index = numOfImg - 1;
+		} else {
+		index--;
+		}	
+		}  else  {
+		if (index == numOfImg - 1){
+			index = 0;
+		} else {
+			index++;
+		}
+	}
+	updateCarouselImg();
+	console.log("3");
+}
 
 
+	
 
 
 
