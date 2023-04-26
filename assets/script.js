@@ -23,7 +23,7 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-/*let j = 2;*/
+
 
 /* const longueur du tableau slides et initialisation de son index à 0 */
 const numOfImg = slides.length;
@@ -37,19 +37,13 @@ function createDots() {
 	for (let a = 0;
 		a < numOfImg; /* For a < the length of the array add 1 */
 		a++) {
-											console.log("a =", a);
 	/* creation of dot with ID*/
 	const dot = document.createElement('span');
 	dot.id='span' + a; /* create of the ID for span */
-											console.log("create dot =", dot.id);
-	dot.addEventListener('click', function () {
-											console.log("i number target", index);
-		updateCarouselImg()/* update image carousel */
-	});
-	console.log("i number target", index);
-	dot.classList.add('dot');
+											console.log("dotid = spanx",dot.id)
+	dot.classList.add('dot'); /* nom des id pour dot */
 											console.log( "nom des span", dot)
-	dots.appendChild(dot);
+	dots.appendChild(dot); /*  */
 											console.log("appendChild", dot)
 	}	
 }
@@ -102,10 +96,10 @@ function nextPrevious () {
 		case 0:
 		if (index == 0) {
 			index = numOfImg - 1;
+			console.log("left");
 		} else {
 			index--;
-			console.log("index 0 else");
-			console.log("jamais");
+			console.log("left");
 			}	
 			break
 
