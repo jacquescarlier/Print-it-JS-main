@@ -18,17 +18,13 @@ const slides = [
 ]
 
 /* Déclaration des constantes */
-
 const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-
-
 /* const longueur du tableau slides et initialisation de son index à 0 */
 const numOfImg = slides.length;
 let index = 0;
-
 /* création dot*/
 /* console.log centrer pour développement code*/
 /* Après j'efface */
@@ -37,78 +33,58 @@ function createDots() {
 	for (let a = 0;
 		a < numOfImg; /* For a < the length of the array add 1 */
 		a++) {
-	/* creation of dot with ID*/
-	const dot = document.createElement('span');
-	dot.id='span' + a; /* create of the ID for span */
-											console.log("dotid = spanx",dot.id)
-	dot.classList.add('dot'); /* nom des id pour dot */
-											console.log( "nom des span", dot)
-	dots.appendChild(dot); /*  */
-											console.log("appendChild", dot)
-	}	
+				const dot = document.createElement('span'); /* create of span element*/
+				dot.id='span' + a; /* create of the ID for span */
+											console.log("dotid : spanx = ",dot.id)
+				dot.classList.add('dot'); /* nom des id pour dot */										
+				dots.appendChild(dot); /* ajout d'un noeud pour span id - dot created*/
+			}	
 }
 createDots();
-
 	/* update active dot */
 function updateDot() {
 	const dot = document.getElementsByClassName('dot');
+	console.log("dot-index-avant", dot.index);
 	/* delete dot not selected to leave them empty*/
 	/*without this code all the dots are filled one after the other */
 	for (let index = 0;
-		index < dot.length;
+		index < dot.length;		/* logueur de 4 = 0, 1, 2, 3*/					
 		index++) {
-			/* Remove dot fill */
-		dot[index].classList.remove('dot_selected');
+		dot[index].classList.remove('dot_selected'); /* Remove dot fill */
 									console.log("dot remove_update dot", dot[index])
 									console.log("dot index", dot[index])
 		}
-		/* dot selected*/
-		
-		dot[index].classList.add('dot_selected');
+		dot[index].classList.add('dot_selected'); /* dot selected*/
 									console.log("dot selected_update dot", dot[index])
 }						
-
 /* refresh slideshow images*/
 function updateCarouselImg() {
-	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`;
-	bannerTxt.innerHTML = slides[index].tagLine;
-	console.log("updatecarousel 666");
-	updateDot();
+	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`; /* img selected */
+	bannerTxt.innerHTML = slides[index].tagLine; /* text selected */
+	updateDot(); /* Appel function updateDot */
 }
 updateCarouselImg();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
 	 j = 0
-	nextPrevious();
+	 nextPrevious();	
 })
-
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
 	 j = -1
 	nextPrevious();
 })
-
 /* fonction paramètres left rigth */
 function nextPrevious () {
 	
 	switch(j) {
 		case 0:
-		if (index == 0) {
-			index = numOfImg - 1;
-			console.log("left");
-		} else {
-			index--;
-			console.log("left");
-			}	
+			index==0 ? index=numOfImg - 1 : index--;
 			break
 
 		case -1:
-			if (index == numOfImg - 1){
-				index = 0;
-			} else {
-				index++;
-			}
+			index==numOfImg-1 ? index = 0 : index++;
 			break
 	}
 	
