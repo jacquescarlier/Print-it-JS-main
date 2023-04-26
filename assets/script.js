@@ -23,6 +23,7 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
+let j = 2;
 
 /* const longueur du tableau slides et initialisation de son index à 0 */
 const numOfImg = slides.length;
@@ -84,41 +85,42 @@ updateCarouselImg();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
-	let j = 0
+	 j = 0
 	nextPrevious();
 })
 
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
-	let j = -1
+	 j = -1
 	nextPrevious();
 })
 /*
 /* fonction paramètres left rigth */
 function nextPrevious () {
 	console.log("nextPrevious ");
-	if (j = 0) {
-		
+	
+
+	switch(j) {
+		case 0:
 		if (index == 0) {
-		index = numOfImg - 1;
-		console.log("index 0 if");
-		console.log("indexIf0", index)
+			index = numOfImg - 1;
 		} else {
-		index--;
-		console.log("index 0 else");
-		}	
-	} if (j = -1) {
-		console.log("ifindex", numOfImg)
-		if (index == numOfImg - 1){
-			index = 10;
-			console.log("if -1");
-		} else {
-			index++;
-			console.log("else -1")
-		}
+			index--;
+			console.log("index 0 else");
+			console.log("jamais");
+			}	
+			break
+
+		case -1:
+			if (index == numOfImg - 1){
+				index = 0;
+			} else {
+				index++;
+			}
 	}
+	
 	updateCarouselImg();
-	console.log("333");
+	
 }
 
 
