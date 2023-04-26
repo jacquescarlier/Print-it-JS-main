@@ -77,19 +77,16 @@ arrowRight.addEventListener("click", function(){
 })
 /* fonction paramètres left rigth */
 function nextPrevious () {
-	
 	switch(j) {
-		case 0:
-			index==0 ? index=numOfImg - 1 : index--;
+		case 0: /*utilisation opérateur ternaire*/
+			index==0 ? index=numOfImg - 1 : index--; /*si (index=0) alors index= numOFImg-1 sinon index -1*/
 			break
 
 		case -1:
-			index==numOfImg-1 ? index = 0 : index++;
+			index==numOfImg-1 ? index = 0 : index++; /*si (index=numOfImg-1) alors index mis à 0 sinon index+1 */
 			break
 	}
-	
 	updateCarouselImg();
-	
 }
 
 
