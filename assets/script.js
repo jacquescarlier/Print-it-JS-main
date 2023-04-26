@@ -90,8 +90,10 @@ arrowRight.addEventListener("click", function(){
 	 j = -1
 	nextPrevious();
 })
+
 /* function next previous */
 function nextPrevious() {
+
 	switch(j) {
 		case 0: /*utilisation opérateur ternaire*/
 			index==0 ? index=numOfImg - 1 : index--; 
