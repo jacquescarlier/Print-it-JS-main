@@ -34,17 +34,17 @@ function createDots() {
 	const dots = document.querySelector('.dots');
 	for (let a = 0;
 		a < numOfImg; 
-		/* For a < the length of the array add 1 */
+				/* For a < the length of the array add 1 */
 		a++) {
-				const dot = document.createElement('span'); 
+			const dot = document.createElement('span'); 
 				/* create of span element*/
-				dot.id='span' + a; 
+			dot.id='span' + a; 
 				/* create of the ID for span */
 											console.log("dotid : spanx = ",dot.id)
-				dot.classList.add('dot'); 
+			dot.classList.add('dot'); 
 				/* nom des id pour dot */										
-				dots.appendChild(dot); 
-				/* ajout d'un noeud pour span id - dot created*/
+			dots.appendChild(dot); 
+				/* ajout d'un noeud à dots pour span id - dot created*/
 			}	
 }
 createDots();
