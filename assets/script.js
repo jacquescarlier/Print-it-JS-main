@@ -23,7 +23,7 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-let j = 2;
+/*let j = 2;*/
 
 /* const longueur du tableau slides et initialisation de son index à 0 */
 const numOfImg = slides.length;
@@ -94,12 +94,10 @@ arrowRight.addEventListener("click", function(){
 	 j = -1
 	nextPrevious();
 })
-/*
+
 /* fonction paramètres left rigth */
 function nextPrevious () {
-	console.log("nextPrevious ");
 	
-
 	switch(j) {
 		case 0:
 		if (index == 0) {
@@ -117,6 +115,7 @@ function nextPrevious () {
 			} else {
 				index++;
 			}
+			break
 	}
 	
 	updateCarouselImg();
