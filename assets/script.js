@@ -42,8 +42,10 @@ function createDots() {
 				/* create of the ID for span */
 											console.log("dotid : spanx = ",dot.id)
 			dot.classList.add('dot'); 
+			console.log("dot.classlistadd", dot.value)
 				/* nom des id pour dot */										
 			dots.appendChild(dot); 
+											console.log("appendchild", dots.appendChild(dot) )
 				/* ajout d'un noeud à dots pour span id - dot created*/
 			}	
 }
@@ -52,7 +54,7 @@ createDots();
 /* update  and choice actived dot */
 function updateDot() {
 	const dot = document.getElementsByClassName('dot');
-	console.log("dot-index-avant", dot.index);
+	console.log("dot-index-avant", dot);
 	/* delete dot not selected to leave them empty*/
 	/*without this code all the dots are filled one after the other */
 	for (let index = 0;
@@ -61,7 +63,6 @@ function updateDot() {
 		dot[index].classList.remove('dot_selected'); 
 		/* Remove dot fill */
 									console.log("dot remove_update dot", dot[index])
-									console.log("dot index", dot[index])
 		}
 		dot[index].classList.add('dot_selected'); 
 		/* actived dot */
@@ -77,6 +78,7 @@ function updateCarouselImg() {
 	updateDot(); 
 	/* Appel function updateDot */
 }
+
 updateCarouselImg();
 
 /* function arrow_left, previous */
@@ -94,16 +96,15 @@ arrowRight.addEventListener("click", function(){
 /* function next previous */
 function nextPrevious() {
 
+	/*function with ternary operator use */
 	switch(j) {
-		case 0: /*utilisation opérateur ternaire*/
+		case 0: 
 			index==0 ? index=numOfImg - 1 : index--; 
-							console.log("précédent")
 			/*si (index=0) alors index= numOFImg-1 sinon index -1*/
 			break
 
 		case -1:
 			index==numOfImg-1 ? index = 0 : index++; 
-							console.log("suivant")
 			/*si (index=numOfImg-1) alors index mis à 0 sinon index+1 */
 			break
 	}
