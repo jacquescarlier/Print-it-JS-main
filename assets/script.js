@@ -17,36 +17,63 @@ const slides = [
 	}
 ]
 
-/* Déclaration des constantes */
+/* Declaration of constants */
 const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
 
-/* const longueur du tableau slides et initialisation de son index à 0 */
 const numOfImg = slides.length;
+/* slideshow array length constant and initialization of its index to 0 */
 let index = 0;
+/* index reset */
+
+/* function arrow_left, previous */
+arrowLeft.addEventListener("click", function() {
+	j = 0
+	nextPrevious();	
+})
+/* function arrow_right, next */
+arrowRight.addEventListener("click", function(){
+	j = -1
+   nextPrevious();
+})
+
+/* function for next or previous */
+function nextPrevious() {
+	/*function with ternary operator use */
+	switch(j) {
+		case 0: 
+			index==0 ? index=numOfImg - 1 : index--; 
+			/*if (index=0)  index= numOFImg-1 else index -1 (left)*/
+			break
+
+		case -1:
+			index==numOfImg-1 ? index = 0 : index++; 
+			/*if (index=numOfImg-1) index mis à 0 else index+1 (right) */
+			break
+	}
+	updateCarouselImg();
+}
 
 /* création dot*/
-/* console.log centrer pour développement code*/
-/* Après j'efface */
 function createDots() {
 	const dots = document.querySelector('.dots');
 	for (let a = 0;
+		/* for loop to create as many dot as indexes in the slide*/
 		a < numOfImg; 
-				/* For a < the length of the array add 1 */
+		/* For a < the length of the array add 1 */
 		a++) {
 			const dot = document.createElement('span'); 
-				/* create of span element*/
+			/* create of span element*/
 			dot.id='span' + a; 
-				/* create of the ID for span */
-											console.log("dotid : spanx = ",dot.id)
+			/* create of the ID for dot 'span0, span1, .. */
+											
 			dot.classList.add('dot'); 
-			console.log("dot.classlistadd", dot.value)
-				/* nom des id pour dot */										
+			/* create the class 'dot' */				
+													
 			dots.appendChild(dot); 
-											console.log("appendchild", dots.appendChild(dot) )
-				/* ajout d'un noeud à dots pour span id - dot created*/
+			/* adding node dots for "span id=spanx, class=dot" */							
 			}	
 }
 createDots();
@@ -54,7 +81,7 @@ createDots();
 /* update  and choice actived dot */
 function updateDot() {
 	const dot = document.getElementsByClassName('dot');
-	console.log("dot-index-avant", dot);
+
 	/* delete dot not selected to leave them empty*/
 	/*without this code all the dots are filled one after the other */
 	for (let index = 0;
@@ -62,11 +89,9 @@ function updateDot() {
 		index++) {
 		dot[index].classList.remove('dot_selected'); 
 		/* Remove dot fill */
-									console.log("dot remove_update dot", dot[index])
 		}
 		dot[index].classList.add('dot_selected'); 
 		/* actived dot */
-									console.log("dot selected_update dot", dot[index])
 }	
 
 /* refresh slideshow images*/
@@ -76,40 +101,13 @@ function updateCarouselImg() {
 	bannerTxt.innerHTML = slides[index].tagLine; 
 	/* text selected */
 	updateDot(); 
-	/* Appel function updateDot */
+	/* call function updateDot */
 }
 
 updateCarouselImg();
+/* call updateCarouselImg to initialize the dot */
 
-/* function arrow_left, previous */
-arrowLeft.addEventListener("click", function() {
-	 j = 0
-	 nextPrevious();	
-})
 
-/* function arrow_right, next */
-arrowRight.addEventListener("click", function(){
-	 j = -1
-	nextPrevious();
-})
-
-/* function next previous */
-function nextPrevious() {
-
-	/*function with ternary operator use */
-	switch(j) {
-		case 0: 
-			index==0 ? index=numOfImg - 1 : index--; 
-			/*si (index=0) alors index= numOFImg-1 sinon index -1*/
-			break
-
-		case -1:
-			index==numOfImg-1 ? index = 0 : index++; 
-			/*si (index=numOfImg-1) alors index mis à 0 sinon index+1 */
-			break
-	}
-	updateCarouselImg();
-}
 
 
 	
