@@ -22,7 +22,7 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-let j = 2;
+let j = 'ok';
 
 const numOfImg = slides.length;
 /* slideshow array length constant and initialization of its index to 0 */
@@ -31,12 +31,12 @@ let index = 0;
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
-	j = 0
+	j = 'left'
 	nextPrevious();	
 })
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
-	j = -1
+	j = 'right'
    nextPrevious();
 })
 
@@ -44,12 +44,15 @@ arrowRight.addEventListener("click", function(){
 function nextPrevious() {
 	/*function with ternary operator use */
 	switch(j) {
-		case 0: 
+		/* The switch statement evaluates an expression and, depending on the result obtained and the associated case, executes the corresponding statements. */
+		case 'left': 
+		/* if j='left we do this part  else we go to other "case" */
 			index==0 ? index=numOfImg - 1 : index--; 
 			/*if (index=0)  index= numOFImg-1 else index -1 (left)*/
 			break
+			/* to stop there */
 
-		case -1:
+		case 'right':
 			index==numOfImg-1 ? index = 0 : index++; 
 			/*if (index=numOfImg-1) index mis à 0 else index+1 (right) */
 			break
