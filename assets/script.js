@@ -74,7 +74,16 @@ function createDots() {
 			/* create the class 'dot' */				
 													
 			dots.appendChild(dot); 
-			/* adding node dots for "span id=spanx, class=dot" */							
+			/* adding node dots for "span id=spanx, class=dot" */	
+			
+			dot.addEventListener('click', function(selectedDot) {
+				index = Number(selectedDot.target.id.replace('span', ''));
+			/* --the number function returns a number--
+			 --event.target.id handler to get the id of the element that fired an event--
+			 --replace "span" by " "--
+			 --index number of the chosen dot and put it in the variable "index"-- */
+				updateCarouselImg();
+			});
 			}	
 }
 createDots();
