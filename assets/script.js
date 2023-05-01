@@ -22,28 +22,27 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-let j = ' ';
+
 
 const numOfImg = slides.length;
 /* slideshow array length constant and initialization of its index to 0 */
 let index = 0;
-/* index reset */
+
+createDots();
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
-	j = 'left';
-	nextPrevious();	
+	nextPrevious('left');	
 })
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
-	j = 'right';
-   nextPrevious();
+   nextPrevious('right');
 })
 
 /* function for next or previous */
-function nextPrevious() {
+function nextPrevious(direction) {
 	/*function with ternary operator use */
-	switch(j) {
+	switch(direction) {
 		/* The switch statement evaluates an expression and, depending on the result obtained and the associated case, executes the corresponding statements. */
 		case 'left': 
 		/* if j='left we do this part  else we go to other "case" */
@@ -87,7 +86,7 @@ function createDots() {
 			});
 			}	
 }
-createDots();
+
 	
 /* update  and choice actived dot */
 function updateDot() {
@@ -96,7 +95,7 @@ function updateDot() {
 	/* delete dot not selected to leave them empty*/
 	/*without this code all the dots are filled one after the other */
 	for (let index = 0;
-		index < dot.length;		/* logueur de 4 = 0, 1, 2, 3*/					
+		index < dot.length;		/* longueur de 4 = 0, 1, 2, 3*/					
 		index++) {
 		dot[index].classList.remove('dot_selected'); 
 		/* Remove dot fill */
