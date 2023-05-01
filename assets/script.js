@@ -22,7 +22,7 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-let j = 'ok';
+let j = ' ';
 
 const numOfImg = slides.length;
 /* slideshow array length constant and initialization of its index to 0 */
@@ -31,12 +31,12 @@ let index = 0;
 
 /* function arrow_left, previous */
 arrowLeft.addEventListener("click", function() {
-	j = 'left'
+	j = 'left';
 	nextPrevious();	
 })
 /* function arrow_right, next */
 arrowRight.addEventListener("click", function(){
-	j = 'right'
+	j = 'right';
    nextPrevious();
 })
 
@@ -48,9 +48,9 @@ function nextPrevious() {
 		case 'left': 
 		/* if j='left we do this part  else we go to other "case" */
 			index==0 ? index=numOfImg - 1 : index--; 
-			/*if (index=0)  index= numOFImg-1 else index -1 (left)*/
+			/*if (index=0) "true"  index= numOFImg-1 else "false" index -1 (left)*/
 			break
-			/* to stop there */
+			/* to stop there  if the case is true*/
 
 		case 'right':
 			index==numOfImg-1 ? index = 0 : index++; 
@@ -72,9 +72,10 @@ function createDots() {
 			/* create of span element*/
 			dot.id='span' + a; 
 			/* create of the ID for dot 'span0, span1, .. */
-											
+								console.log("création span", dot.id)	;		
 			dot.classList.add('dot'); 
-			/* create the class 'dot' */				
+			/* create the class 'dot' */	
+			console.log("ajoute la class", dot.classList)	;		
 													
 			dots.appendChild(dot); 
 			/* adding node dots for "span id=spanx, class=dot" */	
