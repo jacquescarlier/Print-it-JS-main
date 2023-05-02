@@ -46,10 +46,7 @@ function createDots() {
 			
 			dot.addEventListener('click', function(activeDot) {
 				index = Number(activeDot.target.id.replace('span', ''));
-			/* --the number function returns a number--
-			 --active.target.id handler to get the id of the element that fired an event--
-			 --replace "span" by " "--
-			 --index number of the chosen dot and put it in the variable "index"-- */
+			/* --the number function returns a number-- */
 			 	updateCarouselImg();	
 				});
 			}	
