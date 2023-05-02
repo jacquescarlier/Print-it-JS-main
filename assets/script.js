@@ -23,10 +23,37 @@ const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
 
-
 const numOfImg = slides.length;
 /* slideshow array length constant and initialization of its index to 0 */
 let index = 0;
+
+/* création dot*/
+function createDots() {
+	const dots = document.querySelector('.dots');
+	for (let a = 0;
+		/* for loop to create as many dot as indexes in the slide*/
+		a < numOfImg; 
+		/* For a < the length of the array add 1 */
+		a++) {
+			const dot = document.createElement('span'); 
+			/* create of span element*/
+			dot.id='span' + a; 
+			/* create of the ID for dot 'span0, span1, .. */	
+			dot.classList.add('dot'); 
+			/* create the class 'dot' */	
+			dots.appendChild(dot); 
+			/* adding node dots for "span id=spanx, class=dot" */	
+			
+			dot.addEventListener('click', function(activeDot) {
+				index = Number(activeDot.target.id.replace('span', ''));
+			/* --the number function returns a number--
+			 --active.target.id handler to get the id of the element that fired an event--
+			 --replace "span" by " "--
+			 --index number of the chosen dot and put it in the variable "index"-- */
+			 	updateCarouselImg();	
+				});
+			}	
+}
 
 createDots();
 
@@ -59,52 +86,7 @@ function nextPrevious(direction) {
 	updateCarouselImg();
 }
 
-/* création dot*/
-function createDots() {
-	const dots = document.querySelector('.dots');
-	for (let a = 0;
-		/* for loop to create as many dot as indexes in the slide*/
-		a < numOfImg; 
-		/* For a < the length of the array add 1 */
-		a++) {
-			const dot = document.createElement('span'); 
-			/* create of span element*/
-			dot.id='span' + a; 
-			/* create of the ID for dot 'span0, span1, .. */	
-			dot.classList.add('dot'); 
-			/* create the class 'dot' */	
-			dots.appendChild(dot); 
-			/* adding node dots for "span id=spanx, class=dot" */	
-			
-			dot.addEventListener('click', function(activeDot) {
-				index = Number(activeDot.target.id.replace('span', ''));
-			/* --the number function returns a number--
-			 --active.target.id handler to get the id of the element that fired an event--
-			 --replace "span" by " "--
-			 --index number of the chosen dot and put it in the variable "index"-- */
-				updateCarouselImg();
-			});
-			}	
-}
-
-	
-/* update  and choice actived dot */
-function updateDot() {
-	const dot = document.getElementsByClassName('dot');
-
-	/* delete dot not selected to leave them empty*/
-	/*without this code all the dots are filled one after the other */
-	for (let index = 0;
-		index < dot.length;		/* longueur de 4 = 0, 1, 2, 3*/					
-		index++) {
-		dot[index].classList.remove('dot_selected'); 
-		/* Remove dot fill */
-		}
-		dot[index].classList.add('dot_selected'); 
-		/* actived dot */
-}	
-
-/* refresh slideshow images*/
+/* slideshow refresh*/
 function updateCarouselImg() {
 	bannerImg.src = `./assets/images/slideshow/${slides[index].image}`; 
 	/* img selected */
@@ -114,8 +96,23 @@ function updateCarouselImg() {
 	/* call function updateDot */
 }
 
+	
+/* update  and choice actived dot */
+function updateDot() {
+	const dot = document.getElementsByClassName('dot');
+	/* dot class update*/
+	for (let index = 0;
+		index < dot.length;							
+		index++) {
+		dot[index].classList.remove('dot_selected'); 
+		/* remove dot-selected class from dot */
+		}
+		dot[index].classList.add('dot_selected'); 
+		/* adding a dot_selected class to the active dot */
+}	
+
 updateCarouselImg();
-/* call updateCarouselImg to initialize the dot */
+/* call updateCarouselImg */
 
 
 
