@@ -31,22 +31,15 @@ let index = 0;
 function createDots() {
 	const dots = document.querySelector('.dots');
 	for (let a = 0;
-		/* for loop to create as many dot as indexes in the slide*/
 		a < numOfImg; 
-		/* For a < the length of the array add 1 */
 		a++) {
 			const dot = document.createElement('span'); 
-			/* create of span element*/
-			dot.id='span' + a; 
-			/* create of the ID for dot 'span0, span1, .. */	
-			dot.classList.add('dot'); 
-			/* create the class 'dot' */	
-			dots.appendChild(dot); 
-			/* adding node dots for "span id=spanx, class=dot" */	
+			dot.id='span' + a; 	
+			dot.classList.add('dot'); 	
+			dots.appendChild(dot); 	
 			
 			dot.addEventListener('click', function(activeDot) {
 				index = Number(activeDot.target.id.replace('span', ''));
-			/* --the number function returns a number-- */
 			 	updateCarouselImg();	
 				});
 			}	
@@ -65,19 +58,14 @@ arrowRight.addEventListener("click", function(){
 
 /* function for next or previous */
 function nextPrevious(direction) {
-	/*function with ternary operator use */
+	
 	switch(direction) {
-		/* The switch statement evaluates an expression and, depending on the result obtained and the associated case, executes the corresponding statements. */
 		case 'left': 
-		/* if j='left we do this part  else we go to other "case" */
 			index==0 ? index=numOfImg - 1 : index--; 
-			/*if (index=0) "true"  index= numOFImg-1 else "false" index -1 (left)*/
 			break
-			/* to stop there  if the case is true*/
 
 		case 'right':
 			index==numOfImg-1 ? index = 0 : index++; 
-			/*if (index=numOfImg-1) index mis à 0 else index+1 (right) */
 			break
 	}
 	updateCarouselImg();
@@ -90,7 +78,6 @@ function updateCarouselImg() {
 	bannerTxt.innerHTML = slides[index].tagLine; 
 	/* text selected */
 	updateDot(); 
-	/* call function updateDot */
 }
 
 	
