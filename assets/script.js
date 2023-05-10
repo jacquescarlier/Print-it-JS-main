@@ -39,6 +39,7 @@ function createDots() {
 			dots.appendChild(dot); 	
 			
 			dot.addEventListener('click', function(activeDot) {
+				console.log(activeDot)
 				index = Number(activeDot.target.id.replace('span', ''));
 			 	updateCarouselImg();	
 				});
@@ -61,11 +62,11 @@ function nextPrevious(direction) {
 	
 	switch(direction) {
 		case 'left': 
-			index==0 ? index=numOfImg - 1 : index--; 
+			index = index==0 ? numOfImg - 1 : index - 1; 
 			break
 
 		case 'right':
-			index==numOfImg-1 ? index = 0 : index++; 
+			index = index==numOfImg-1 ? 0 : index + 1; 
 			break
 	}
 	updateCarouselImg();
@@ -77,6 +78,7 @@ function updateCarouselImg() {
 	/* img selected */
 	bannerTxt.innerHTML = slides[index].tagLine; 
 	/* text selected */
+	
 	updateDot(); 
 }
 
