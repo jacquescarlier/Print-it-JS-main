@@ -39,11 +39,13 @@ function createDots() {
 			dots.appendChild(dot); 	
 			
 			dot.addEventListener('click', function(activeDot) {
-				console.log(activeDot)
+
 				index = Number(activeDot.target.id.replace('span', ''));
+				console.log("actifDot", index )
 			 	updateCarouselImg();	
 				});
 			}	
+			
 }
 
 createDots();
