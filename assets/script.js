@@ -22,7 +22,8 @@ const arrowLeft = document.getElementById('arrow_left');
 const arrowRight = document.getElementById('arrow_right');
 const bannerImg = document.querySelector('.banner-img');
 const bannerTxt = document.querySelector('#banner p');
-
+let slideWidth = bannerImg.getBoundingClientRect().width
+console.log("width", slideWidth)
 const numOfImg = slides.length;
 /* slideshow array length constant and initialization of its index to 0 */
 let index = 0;
@@ -80,7 +81,6 @@ function updateCarouselImg() {
 	/* img selected */
 	bannerTxt.innerHTML = slides[index].tagLine; 
 	/* text selected */
-	
 	updateDot(); 
 }
 
