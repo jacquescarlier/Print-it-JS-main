@@ -89,10 +89,10 @@ function updateCarouselImg() {
 function updateDot() {
 	const dot = document.getElementsByClassName('dot');
 	/* dot class update*/
-	for (let index = 0;
-		index < dot.length;							
-		index++) {
-		dot[index].classList.remove('dot_selected'); 
+	for (let i = 0;
+		i < dot.length;							
+		i++) {
+		dot[i].classList.remove('dot_selected'); 
 		/* remove dot-selected class from dot */
 		}
 		dot[index].classList.add('dot_selected'); 
